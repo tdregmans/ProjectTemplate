@@ -2,37 +2,43 @@
 \documentclass[10pt]{report} 
 
 %%% PACKAGES
-\usepackage{booktabs} % for much better looking tables
-\usepackage{array} % for better arrays (eg matrices) in maths
-\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
-\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
-\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
-% These packages are all incorporated in the memoir class to one degree or another...
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{paralist}
+\usepackage{verbatim}
+\usepackage{subfig}
 
-\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[yyyymmdd]{datetime}
+\renewcommand{\dateseparator}{-}
+
+\usepackage{lastpage}
+
+\usepackage[utf8]{inputenc}
 \usepackage{minitoc}
-\usepackage{graphicx} % support the \includegraphics command and options
-% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
 
 %%% PAGE DIMENSIONS
-\usepackage{geometry} % to change the page dimensions
-\geometry{a4paper} % or letterpaper (US) or a5paper or....
-% \geometry{margin=2in} % for example, change the margins to 2 inches all round
-% \geometry{landscape} % set up the page for landscape
-%   read geometry.pdf for detailed page layout information
+\usepackage{geometry}
+\geometry{a4paper}
 
 %%% HEADERS & FOOTERS
 \usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
 \pagestyle{fancy} % options: empty , plain , fancy
-\renewcommand{\headrulewidth}{0pt} % customise the layout...
-\lhead{Project Template}\chead{}\rhead{Thijs Dregmans}
-\lfoot{\date{22-12-2022}}\cfoot{\thepage}\rfoot{version 0.6}
+
+\fancyhf{}
+\fancyhead[L]{Project Template}
+%\fancyhead[C]{Chapter \thechapter}
+\fancyhead[R]{\today}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot[L]{Thijs Dregmans}
+\fancyfoot[C]{\thepage\ of \pageref{LastPage}}
+\fancyfoot[R]{Version 1.0}
+\renewcommand{\footrulewidth}{0.4pt}
 
 %%% SECTION TITLE APPEARANCE
 \usepackage{sectsty}
 \usepackage{tabularx}
-\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
-% (This matches ConTeXt defaults)
+\allsectionsfont{\sffamily\mdseries\upshape}
 
 %%% ToC (table of contents) APPEARANCE
 \usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
@@ -40,20 +46,24 @@
 \renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
 \renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
 
-%%% DOCUMENT
+
+%%% TITLE PAGE
 \title{Project Template: A Template for Documenting Projects}
+\date{\today}
 
 \author{Thijs Dregmans}
-\date{22 December 2022}
 
-%Initializing Minitoc
+%%% MINI ToCs
 \dominitoc[n]
 
+
+%%% DOCUMENT CONTENTS
 \begin{document}
 \maketitle
 
 %%% %%% %%% CHAPTER 1 %%% %%%% %%%
 \chapter{Introduction}
+\thispagestyle{fancy}
 
 I'm currently working on the project 'Project 5/6'. We are developing a testsystem for Venadium Redox Flow Batteries. We're at the stage that Potentially Shippable Product (PSP) is almost finished. Because of this, we are more concerned with documenting the process, than with finishing the product.
 
@@ -62,12 +72,14 @@ It seems a good idea to get a clear picture about what documenting is all about.
 \newpage
 
 %%% %%% %%% TOC %%% %%%% %%%
+\addtocontents{toc}{\protect\thispagestyle{fancy}}
 \tableofcontents
 
 \newpage
 
 %%% %%% %%% CHAPTER 2 %%% %%%% %%%
 \chapter{Prepartive Documentation}
+\thispagestyle{fancy}
 
 In this chapter, several documents that prepare for the project are discussed. These documents are either written at the start of a project or started at the beginning of a project and written througout the project. For example, the Logbook is the first document that is created. Through the project, each action, adjustment or contribution is added.
 
@@ -98,16 +110,16 @@ Addiontally, there is a colomn added for each teammember. In this colomn, the nu
 %%% %%% SECTION 2 %%% %%%%
 \section{Scope of the Project}
 
-In this document, we define what this project goal is, what the PSP is, and more importantly what is not the goal. It is important to share this document with all stakeholders, so they know what to expect. There are number of things achieved by writing this document:
+In this document, the goal of this project and the PSP is defined. It is important to share this document with all stakeholders, so they know what to expect. There are number of things achieved by writing this document:
 
 \begin{itemize}
 	\item Stakeholders have a clear view on what the project is set to achieve.
 	\item Risks are minimized.
-	\item With the scope, we can create a timeline and budget.
+	\item With the scope, a timeline and budget can be establised.
 	\item The client cannot change what he/she wants, without consultation of the projectteam.
 \end{itemize}
 
-Especially the last is important. It can be disastrous to the relation with the client, if the team doesn't submit what he/she expects, or if the client wants something that the team doesn't provide. By clearly defining the scope, everyone knows what to expect. The Scope is document that is created at the start of the project. During the project it cannot be changed without consultation of all stakeholders. In other words, the client, teammembers and third parties colaborate on this document. It cannot be changed without talking with the client.c
+Especially the last is important. It can be disastrous to the relation with the client, if the team doesn't submit what he/she expects, or if the client wants something that the team doesn't provide. By clearly defining the scope, everyone knows what to expect. The Scope is document that is created at the start of the project. During the project it cannot be changed without consultation of all stakeholders. In other words, the client, teammembers and third parties colaborate on this document. It cannot be changed without talking with the client.
 
 Together with the Collaboration Agreement, this document is the foundation for the collaboration and communcation between projectteam and client.
 
@@ -115,19 +127,19 @@ The Scope has a number of parts:
 
 \subsection{Goals}
 
-Here we discuss the project goals, both from the teachers and the client. After conversations with the client, together with the client, one or multiple goals are determined. Not only should the goals of the project be discussed. The client should make clear what the PSP contributes in the real world. It it does not do anything, the project is basically pointless.
+Here the projectteam discuss the project goals, both from the teachers and the client. After conversations with the client, together with the client, one or multiple goals are determined. Not only should the goals of the project be discussed. The client should make clear what the PSP contributes in the real world. It it does not do anything, the project is basically pointless.
 
 \subsection{Resources}
 
-The projectteam has certain resources. Here we discuss what resources we have access to, and which we can use. It may be that the client provides certain resources. By discussing the resources, we can determine whether we have all the resources we need, or we lack certain resources to complete the project.
+The projectteam has certain resources. Here the resources that are the team have access to are discussed, and which  can use. It may be that the client provides certain resources. By discussing the resources, the team can determine whether it has all the resources it needs, or it lacks certain resources to complete the project.
 
 \subsection{Deliverables}
 
-Here we determine what our PSP (Potentially Shippable Product) is. It may be hardware or software or a combination. It can also consists of pure research, depending on the product. Deliverables are determined by the client in colaboration with the team. Also the deadline(s) are mentioned.
+Here the PSP (Potentially Shippable Product) is determined. It may be hardware or software or a combination. It can also consists of pure research, depending on the product. Deliverables are determined by the client in colaboration with the team. Also the deadline(s) are mentioned.
 
 \subsection{Out of Scope}
 
-It is important to discuss where the project ends. It's easy to say that the project will solve all problems, however that's very unlikely. In what circumstances should the PSP work? What is part of the project, and what is not part of the project? For example, you could say that the PSP that uses light intensity as an input, and that a light intensity with a value less than x, is out of scope. The scope has an profound impact on the testplan, as you can see. All these things should be talked about with the client. Inform him/her about the possibilties and advice about what his/her needs are.
+It is important to discuss where the project ends. It's easy to say that the project will solve all problems, however that's very unlikely. In what circumstances should the PSP work? What is part of the project, and what is not part of the project? For example, it could be said that the PSP that uses light intensity as an input. The PSP should function by a light intensity with a value less than x. Otherwise, it is out of scope. The scope has an profound impact on the testplan. All these things should be talked about with the client. Inform him/her about the possibilties and advice about what his/her needs are.
 
 \newpage
 
@@ -145,7 +157,7 @@ Both categories have their own chapter.
 
 \subsection{General Risks}
 
-You can put the Risk Analysis in table-format. This way, you create a quick overview. In the table, you record the following things:
+The team can put the Risk Analysis in table-format. This way, it creates a quick overview. In the table, the team records the following things:
 
 \begin{itemize}
 	\item \textbf{Risk Scenario} Paint a dangerous scenario.
@@ -155,7 +167,7 @@ You can put the Risk Analysis in table-format. This way, you create a quick over
 	\item \textbf{Results} Describe how the countermeasures minimized the risk.  
 \end{itemize}
 
-Here is a list with risks you want to minimize:
+Here is a list with risks that could be mentioned:
 
 \begin{itemize}
 	\item Death of a teammember
@@ -173,35 +185,53 @@ Here is a list with risks you want to minimize:
 	\item The project goes over budget
 	\item The projectteam doesn't have enough skills to complete the project
 	\item The progress is not enough/non-existent
+	\item Hardware does not arrive in time.
+	\item Software licences expire before finishing the project.
 \end{itemize}
 
 \subsection{Project Specific Risks}
 
-For Project Specific Risks, you create a similair table with Project Specific Risks. An example is that the PSP is endangered because of an failing internet connection. The Project Specific Risks can be privacy or security related. You could also think about continuity and confidentiality.
+For Project Specific Risks, the team creates a similair table with Project Specific Risks. An example is that the PSP is endangered because of an failing internet connection. The Project Specific Risks can be privacy or security related. Do not forget to think about continuity and confidentiality. Mention if relevant.
+
+\subsection{SWOT-analysis}
+
+In some cases, it is appropriate to do an SWOT-analysis. SWOT stands for 'Strength, Weakness, Opportunity, Threat'. This model can be applied to all kinds of things, for example the teammembers, the project, the hardware, ect. 
+
+Research for example the collaboration of teammembers. Four things are looked at:
+
+\begin{itemize}
+	\item \textbf{Strength} - It is observed that the team is diverse. This can be a strength, because different people look at things different. Therefore, problems that would otherwise be overlooked can now be eliminated early on. How can this strength be maximized?
+	\item \textbf{Weakness} - Because the team is diverse, it is possible that communication is not smooth. Conflicts may arrise. How can this weakness be minimized?
+	\item \textbf{Opportunity} - The team opperates in plesant working environment. This is a opportunity for the team, to complete more work. How can this opportunity be used optimally?
+	\item \textbf{Threat} - The team is not given enough resources to complete the project. This is an example of an outside threat. How can this threat be avoided, and/or its impact minimized?
+\end{itemize}
+
+Note that Strength and Weakness are internal and Opportunity and Threat are external.
 
 \newpage
 
 %%% %%% SECTION 4 %%% %%%%
 \section{Agenda}
 
-This document is needed to make the timeline clear. Before creating the Agenda, you need to finish the Scope. In the Scope, the deadline is mentioned. Based on the deadline, and the workload, which is also defined in the Scope, we create a timeline. The timeline can be put into a number of formats; from an Exel-file, a Trello board, a Word-file, ect.
+This document is needed to make the timeline clear. Before creating the Agenda, the team needs to finish the Scope. In the Scope, the deadline is mentioned. Based on the deadline, and the workload, which is also defined in the Scope, a timeline can be constructed. The timeline can be put into a number of formats; from an Exel-file, a Trello board, a Word-file, ect.
 
-Because of our semi-scrum work method, an complete agenda is not needed. But I have always found it easy to put things on a timeline. This way you get an clearer picture of how much time you have to complete a certain task. Note that tasks usually take longer than you think. Keep this is mind when planning the tasks.
+Because of the semi-scrum work method, an complete agenda is not needed. But It is easy to put things on a timeline. This way the team gets a clearer picture of how much time there is to complete a certain task. Note that tasks usually take longer than previously thougth. Keep this is mind when planning the tasks.
 
 \newpage
 
 %%% %%% SECTION 5 %%% %%%%
 \section{Recieved Documentation from Client}
 
-You may or may not recieve documentation from the client. If your project is part of an relay project, meaning another group worked on the project before you, there must be documentation. If it is not provided, ask for it directly. Firstly, this documentation prevents you from doing work that is already done by another group. Secondly, it helps you learning more about the already-existing techology. It is advisable to make a summary of this documentation, for your own understanding.
+The team may or may not recieve documentation from the client. If the project is part of an relay project, meaning another group worked on the project before, there must be documentation. If it is not provided, ask for it directly. Firstly, this documentation the team from doing work that is already done by another group. Secondly, it helps learning more about the already-existing techology. It is advisable to make a summary of this documentation.
 
 \newpage
 
 
 %%% %%% %%% CHAPTER 3 %%% %%%% %%%
 \chapter{Functional Research}
+\thispagestyle{fancy}
 
-In this chapter, I will discuss what kind of functional research is needed. These documents are written after the Research that is done. I put the Requirments Analysis also under the research, because you are researching what the PSP should be. This is what requirments are. The requirements are the foundation on which the whole project is further build. Based on the requirements, we do further research, we design the PSP and test or PSP. So it is very important to get this part right.
+In this chapter, functional research is discussed. The Requirments Analysis are part of this chapter because it is researching what the PSP should be. This is what requirments are. The requirements are the foundation on which the whole project is further build. Based on the requirements, the team does further research, it designs the PSP and tests the PSP. So it is very important to get this part right.
 
 \medskip
 \minitoc
@@ -211,15 +241,15 @@ In this chapter, I will discuss what kind of functional research is needed. Thes
 %%% %%% SECTION 1 %%% %%%%
 \section{Requirements Analysis}
 
-As already discussed, the Requirments form the base of the project. I go through all the chapters that should be included in the Requirments Analysis.
+As already discussed, the Requirments form the base of the project. There are a number of chapters that should be included in the Requirments Analysis.
 
 \subsection{Introduction}
 
-In the introduction of this document, we discuss the Goal of this document and definitions. In the Requirements Analysis, we use very specific terminology, which may be unknown by the user. For this, we provide a detailed list with definitions.
+In the introduction of this document, the team discusses the Goal of this document and definitions. In the Requirements Analysis, the team uses very specific terminology, which may be unknown by the user. For this, the team provides a detailed list with definitions, like this document.
 
 \subsubsection{Goal}
 
-We discuss the goal of both this document and the project. The requirements specify the PSP. The PSP should contribute something in the real world. The requirements elaborate in what situations and how the product should function.
+The team discusses the goal of both this document and the project. The requirements specify the PSP. The PSP should contribute something in the real world. The requirements elaborate in what situations and how the product should function.
 
 \subsubsection{Definitions}
 
@@ -231,7 +261,7 @@ In this part of the introduction, a list of terms and definions is put. For exam
 
 \subsubsection{Stakeholders}
 
-There are a number of people who will interact with the PSP. For different people, different things are important. Different people have different requirments. By identifying the stakeholders, we can more easily determine what requirments apply. Furthermore, we can rankorder the stakeholders on their importance. Their importance determines what classification the requirement gets. Stakeholders are people or organisations that hold a stake in the product:
+There are a number of people who will interact with the PSP. For different people, different things are important. Different people have different requirments. By identifying the stakeholders, the team can more easily determine what requirments apply. Furthermore, the team can rankorder the stakeholders on their importance. Their importance determines what classification the requirement gets. Stakeholders are people or organisations that hold a stake in the product:
 
 \begin{itemize}
 	\item Users
@@ -251,20 +281,24 @@ There are a number of people who will interact with the PSP. For different peopl
 	\item Users do not know how the process works.
 \end{itemize}
 
-\noindent Keep this in the back of your mind. Describe the stakeholders in the introduction.
+\noindent Keep this in mind. Describe the stakeholders in the introduction.
 
 \subsubsection{Constraints}
 
-There are some things about the project that cannot be changed. These things are mentioned under the 'Contraints'. An example is, in a relay project, the work of the past groups. We cannot change the foundation that previous groups have laid, without talking to the client. This would change the project, so the scope has to be redefined. Your constrains will later be used in checking your requirements for attainability. Examples for contraints are time, space, teammembers, expertise, budget, available technology, ect.
+There are some things about the project that cannot be changed. These things are mentioned under the 'Contraints'. An example is, in a relay project, the work of the past groups. The team cannot change the foundation that previous groups have laid, without talking to the client. This would change the project, so the scope has to be redefined. The constraints will later be used in checking the requirements for attainability. Examples for contraints are time, space, teammembers, expertise, budget, available technology, ect.
+
+\subsection{Research Question}
+
+The client has a problem or issue that the team is assigned to solve. How can this be done? This can be formulated into a question. We can base research on this question. This is called the 'Research Question'. For now, this is part of the Requirements Analysis, but this can easily become a seperate document. Most of the time, the question cannot be answered in one breath. The question can be formulated in multiple sub-questions, that can be researched.
 
 \subsection{List with Requirements}
 
-Under this chapter of the document, we specify the requirements. We organize them into a list. For this step in the document, we accutally get the requirments. Each requirement is:
+Under this chapter of the document, the team specifies the requirements. It organizes them into a list. For this step in the document, the team actually writes the requirments down. Each requirement is:
 
 \begin{itemize}
-	\item \textbf{Necessary} to satisfy the need of the client. 
-	\item \textbf{Verifiable} to check whether the client's need is indeed satisfied. 
-	\item \textbf{Attainable} so that the client's need can actually be satisfied. 
+	\item \textbf{Necessary}, to satisfy the need of the client;
+	\item \textbf{Verifiable}, to check whether the client's need is indeed satisfied; and
+	\item \textbf{Attainable}, so that the client's need can actually be satisfied. 
 \end{itemize}
 
 \noindent There are a number of different requirements:
@@ -276,21 +310,21 @@ Under this chapter of the document, we specify the requirements. We organize the
 	\item \textbf{Structural requirments -} Similarly to Architectural requirements, these requirements specify the structure of the PSP. For example, the system must use specify structures like the Design Pattern 'Abstract Factory'.
 	\item \textbf{Behavioral requirments -} These requirements say something about how the system should behave.
 	\item \textbf{Functional requirments -} These requirements, different from Behavioral requirements, specify what functions must be implemented.
-	\item \textbf{Performance requirments -} These requirments specify to what extend, functions must be executed. What quality, quantity, readiness, lifetime, ... is expected?
+	\item \textbf{Performance requirments -} These requirments specify to what extend, functions must be executed. What quality, quantity, readiness, lifetime, Et cetera, is expected?
 	\item \textbf{Derived requirments -} Other requirements may ask for additional requirements. For example, a requirement asking for long range, may result in a design requirment for low weight.
 \end{itemize}
 
-\noindent The following list has a number for fields you need to consider: Functional, Reliablilty, Performance, Maintainability, Interface, Operability, Environment, Safety, Facility, Regulatory, Transportation, Security, Deployment, Privacy, Training, Design constraints and Personnel.
+\noindent The following list has a number for fields the team needs to consider: Functional, Reliablilty, Performance, Maintainability, Interface, Operability, Environment, Safety, Facility, Regulatory, Transportation, Security, Deployment, Privacy, Training, Design constraints and Personnel.
 
-In this chapter, we only mention the requirements, put them into a category and give them a number. In the next chapter, we will discuss each requirment in detail.
+In this chapter, the team only mentions the requirements, put them into a category and give them a number. In the next chapter, it will discusses each requirment in detail.
 
 \subsection{Requirements Detail}
 
-Here we discuss each requirement in detail. 
+Here the team discusses each requirement in detail. 
 
 \subsubsection{Description}
 
-We provide a general description of the requirements. Secondly mention the category that the requirement is part of. Thirdly, we mention the 3 charicaristics of good requirements:
+The team provides a general description of the requirements. Secondly mentions the category that the requirement is part of. Thirdly, it mentions the 3 charicaristics of good requirements:
 
 \paragraph{Necessary}
 
@@ -298,23 +332,23 @@ Why is this requirement necessary? Ask yourself and write down what would/could 
 
 \paragraph{Verifiable}
 
-As you write down the requirement, you need to determine how you will check whether this requirement is satisfied. Can it be checked? If so, write down the Acceptance Criteria. If not, your requirement is not correctly formulated. Determining your AC (Acceptance Criteria) will help you later in your Testplan.
+As the team writes down the requirement, it needs to determine how to check whether this requirement is satisfied. Can it be checked? If so, write down the Acceptance Criteria. If not, this requirement is not correctly formulated. Determining the AC (Acceptance Criteria) will help the team later in the Testplan.
 
 \paragraph{Attainable}
 
-You requirement should be attainable. Checking this is more complicated than it seems. There are a number of contraints, like technology, time and budget. Keep at least the following things in mind:
+The requirement should be attainable. Checking this is more complicated than it seems. There are a number of contraints, like technology, time and budget. Keep at least the following things in mind:
 
 \begin{itemize}
 	\item \textbf{Technology} Does the technology needed exists, or easily build within the project?
-	\item \textbf{Time} Do you have sufficent time to complete this requirement, besides other requirements? Do an estimate.
-	\item \textbf{Budget} Does the provided budget by the client enable you to fulfill this requirement, besides other requirements?
+	\item \textbf{Time} Does the team have sufficent time to complete this requirement, besides other requirements? Give an estimate.
+	\item \textbf{Budget} Does the provided budget by the client enable the team to fulfill this requirement, besides other requirements?
 \end{itemize}
 
 \noindent If it stays unclear if the requirement is attainable, it shouldn't be a requirement. Make a goal of it instead. Lastly, dont forget that, with all requirements together, it should still be feasible.
 
 \paragraph{Clear}
 
-Lastly, your requirement should be clear. It can help to ask others if the requirements are clear. Each requirement should be expressed in a single thought. The requirement should not be ambiguous. If someone misunderstands your requirement, your requirement is most likely unclear. But a requirement can also be too 'clear': Requirements are not made to talk about how to implement features. It is to specify when features are done. You are defining 'what' rather than 'how'.
+Lastly, the requirement should be clear. It can help to ask others if the requirements are clear. Each requirement should be expressed in a single thought. The requirement should not be ambiguous. If someone misunderstands the requirement, the requirement is most likely unclear. But a requirement can also be too 'clear': Requirements are not made to talk about how to implement features. It is to specify when features are done. The team should be defining 'what' rather than 'how'.
 
 \subsection{Interaction between requirements}
 
@@ -327,26 +361,26 @@ If requirements specify a list of functions the system needs to have, it is gene
 %%% %%% SECTION 2 %%% %%%%
 \section{Experimental Research}
 
-We do Experimental Research to "Develop, evaluate or communicate a concept, design or problem solution to make your ideas concrete, to learn whether they work and discover technical limitations and possibilities." We try do find answers to our questions by doing various experiments. The results determine our answers to the questions. We distinguish between two types of experimental research:
+The team does Experimental Research to "Develop, evaluate or communicate a concept, design or problem solution to make your ideas concrete, to learn whether they work and discover technical limitations and possibilities." It helps to find answers to the questions by doing various experiments. The results determine the answers to the questions. There are two types of experimental research:
 
 \begin{itemize}
-	\item \textbf{Comparing} With this type, we compare two or more potential solutions to see what works best.
-	\item \textbf{Value-driven} With this type, we do a certain experiment an find a specific value, like a maximal temperature.
+	\item \textbf{Comparing} With this type, the team compares two or more potential solutions to see what works best.
+	\item \textbf{Value-driven} With this type, the team does a certain experiment to find a specific value, like a maximal temperature.
 \end{itemize}
 
-\noindent For each type, there is a specific roadmap. We discuss the roadmaps further under Research Question.
+\noindent For each type, there is a specific roadmap. These are further discussed under Research Question.
 
 \subsection{Introduction}
 
-After doing this research, you should end up with an research report. In this report, you write down all your steps, so others can retrace your steps and check you conclusion. In the introduction of this report, you describe the problem. There is a specific problem or question. Tell why you think this question is best answered with Experimental Research, instead of other types. Tell about how you can to discover the problem or question. If your research will result in a value, tell what value(s) are acceptable.
+After doing this research, the team should end up with an research report. In this report, the team writes down all the steps, so others can retrace these steps and check the conclusion. In the introduction of this report, the team describes the problem. There is a specific problem or question. Tell why this question is best answered with Experimental Research, instead of other types. Tell about how it can help to discover the answer to the problem or question. If the research will result in a value, tell what value(s) are acceptable.
 
 \subsection{Experiment Protocol}
 
-The mainpart of the Experiment is called the 'Protocol'. The Protocol is an preset steps that you'll take when conducting your research.
+The mainpart of the Experiment is called the 'Protocol'. The Protocol is an preset steps that the team will take when conducting the research.
 
 \subsubsection{Research Question}
 
-The first part of the Experiment Protocol, is the Research Question. What are we actually researching? There is some question we must answer. What is a good research question? A good research question should be:
+The first part of the Experiment Protocol, is the Research Question. What is actually being researched? There is some question it must answer. What is a good research question? A good research question should be:
 
 \begin{itemize}
 	\item \textbf{Clear} The question is clear, so that further explanation is not needed.
@@ -361,19 +395,19 @@ The first part of the Experiment Protocol, is the Research Question. What are we
 	\item Searching for values.
 \end{itemize}
 
-\noindent Name what type of question you're working on. How does this become clear? Ask what answer(s) you can expect. Is the answer clear? Is is possible to give a focused answer? Is the answer concise? Write this down.
+\noindent Name what type of question this is. How does this become clear? Ask what answer(s) the team can expect. Is the answer clear? Is is possible to give a focused answer? Is the answer concise? Write this down.
 
 \subsubsection{Research Setup}
 
-To answer the question, you have a specific setup in mind. Specify this setup in this chapter. Is there hardware involved? If so, how is this hardware connected? Give a wiring diagram. Is ther software involved? if so, what software? What is the version? Under what circumstances are you doing the test? Specify as much as possible.
+To answer the question, the team has a specific setup in mind. Specify this setup in this chapter. Is there hardware involved? If so, how is this hardware connected? Give a wiring diagram. Is there software involved? if so, what software? What is the version? Under what circumstances is the team doing the test? Specify as much as possible.
 
 \subsubsection{External Factors}
 
-The results will be influence by your input, the system and external factors. For testing the input and/or system, you want to minimize the external factors. Find out and list all external factors that could influence your results. Then mention how you will minimize their impact. It would be best if you could neutralize the factors. An example of an external factor is the temperature. The temperature influences, for example, the length of an object. Another external factor can be the internet speed. It depends on the factor, whether it can be eliminated or not. At least, try to describe the factor.
+The results will be influence by the input, the system and external factors. For testing the input and/or system, the team wants to minimize the external factors. Find out and list all external factors that could influence the results. Then mention how the team will minimize their impact. It would be best if the team could neutralize the factors. An example of an external factor is the temperature. The temperature influences, for example, the length of an object. Another external factor can be the internet speed. It depends on the factor, whether it can be eliminated or not. At least, try to describe the factor.
 
 \subsubsection{Research Plan}
 
-In this chapter you give a specific list, with steps that someone can do, one by one. If someone had the same setup as you, minimized the external factors like you, and followed the plan, then he/she should end up with the same results. What kind of plan you have, depends on what your question is. 
+In this chapter the team gives a specific list, with steps that someone can do, one by one. If someone had the same setup, minimized the external factors, and followed the plan, then he/she should end up with the same results.
 
 \paragraph{Steps to Take}
 
@@ -389,7 +423,7 @@ An example of a list with steps are:
 
 \paragraph{Data Recording}
 
-The last part of the Research Protocol is data recording. Here we list all data that has to be recorded. There are a number of things you have to think about:
+The last part of the Research Protocol is data recording. Here the team lists all data that has to be recorded. There are a number of things the team has to consider:
 
 \begin{itemize}
 	\item What data is recorded?
@@ -399,36 +433,36 @@ The last part of the Research Protocol is data recording. Here we list all data 
 	\item How is data saved? What format is used?
 \end{itemize}
 
-\noindent An example of a format is an CSV-file, created by a program specifically written for this research. It is important to record your data in the Research Report. If the data takes a lot of space, you can try to use an attachment, at the end of your report. You can even try to compress your data, but be sure to use lossless compression.
+\noindent An example of a format is an CSV-file, created by a program specifically written for this research. It is important to record the data in the Research Report. If the data takes a lot of space, try to use an attachment, at the end of the report. The team can even try to compress your data, but be sure to use lossless compression.
 
 \subsection{Analysis}
 
-After finishing the Research Protocol, we execute the protocol. This way, we end up with data stored in the format specified in the chapter 'Data Recording'. Here we analyse the data. Depending on your data and format, you can apply all kinds of analysis. If you have a CSV-file, you can use Exel to create graphs to easily see patterns in your data.
+After finishing the Research Protocol, the team executes the protocol. This way, the team ends up with data stored in the format specified in the chapter 'Data Recording'. Here it analyse the data. Depending on the data and format, the team can apply all kinds of analysis. If the team has a CSV-file, it can use Exel to create graphs to easily see patterns in the recorded data.
 
-Write down what analysis you have done, and what you have found. For example, your result can be that you have put the CSV-file into exel and created a graph. You have found that 95\% of the measurements are inserted within 8,29 seconds.
+Write down what analysis the team has done, and what it has found. For example, the result can be that have put the CSV-file into exel and created a graph. The team has found that 95\% of the measurements are inserted within 8,29 seconds.
 
 \subsection{Conclusion}
 
-In your conclusion, you talk about what you have learned. You recap the introduction. In the introduction, you talked about what value(s) are acceptable. In the Protocol, you specified a research question. Answer the question. Lastly, talk about what this answer means and what next step you can make, now you know the answer.
+In the conclusion, the team talks about what it have learned. Recap the introduction. In the introduction, there is written down what value(s) are acceptable. In the Protocol, the team specified a research question. Answer the question. Lastly, talk about what this answer means and what next step the team can make, now the team know the answer.
 
 \newpage
 
 %%% %%%% SECTION 3 %%% %%% 
 \section{Literature Research}
 
-We do Literature Research to learn from what others have already found out. There is no need to find what others have found. We can simply use their research. With 'Literature Research', we Research the literature. In other words, we research what others have written on the topic. We might be able to implement the same solution in our project.
+Literature Research is done to learn from what others have already found out. There is no need to find what others have already found. Their research can simply be used and studied. With 'Literature Research', the Literature is investigated. The same solution may be useful to this project.
 
 \subsection{Introduction}
 
-After doing this research, you should end up with an research report. Here you write down all your steps, so others can retrace your steps and check you conclusion. In the introduction of this report, you describe the problem. There is a specific problem or question. Tell why you think this question is best answered with Literature Research, instead of other types. Tell about how you can to discover the problem or question.
+This research results in a research report. Here all steps are write down, so others can retrace the steps and check the conclusion. In the introduction of this report, the problem is described. There is a specific problem or question. Tell why the team thinks this question is best answered with Literature Research, instead of other types. Tell about how the team can to discover the problem or question.
 
 \subsection{Research Protocol}
 
-With the Research Protocol, we make clear how we have done our research. Firstly, we discuss the question that we need answer. Secondly, we discuss our theoretical framework. Lastly, we talk about how our literature analysis came to be.
+With the Research Protocol, it is made clear how the team did the research. Firstly, the team discusses the question that needs an answer. Secondly, the team discusses the theoretical framework. Lastly, the team talks about how the literature analysis came to be.
 
 \subsubsection{Research Question}
 
-The first part of the Research Protocol, is the Research Question. What are we actually researching? There is some question we must answer. What is a good research question? A good research question should be:
+The first part of the Research Protocol, is the Research Question. What is the team actually researching? There is some question the team has to answer. What is a good research question? A good research question should be:
 
 \begin{itemize}
 	\item \textbf{Clear} The question is clear, so that further explanation is not needed.
@@ -436,7 +470,7 @@ The first part of the Research Protocol, is the Research Question. What are we a
 	\item \textbf{Concise} The question is concise, so that the question is formulated in the fewest words possible?
 \end{itemize}
 
-\noindent Ask what answer(s) you can expect. Is the answer clear? Is is possible to give a focused answer? Is the answer concise?
+\noindent Ask what answer(s) can be expected. Is the answer clear? Is is possible to give a focused answer? Is the answer concise?
 
 \subsubsection{Theoretical Framework}
 
@@ -444,29 +478,29 @@ There are all kinds of fields of study where they have 'literature'. Exploring t
 
 \begin{itemize}
 	\item Discussing the field. What is it? Who are main contributers?
-	\item Explicit assumptions. During the research, we make assumptions. Make them explicit, by talking extensivly about them.
+	\item Explicit assumptions. During the research, assumptions are made. Make them explicit, by talking extensivly about them.
 	\item Connect the researcher with the field. Provide theory from the field, so that the researcher may get a better view of what the field is about.
-	\item Knowing the limitations. If you have a good grip on the theory of the field, you better understand where it fails. Generalizations fail sometimes. It helps the researcher it it know where, how and most importantly why.
+	\item Knowing the limitations. Having a good grip on the theory of the field, helps understanding where it fails. Generalizations fail sometimes. It helps the researcher it it know where, how and most importantly why.
 \end{itemize}
 
 \subsubsection{Research Plan}
 
-Before starting your research, you need to have a plan. You already have specified a goal, namely the question to be answered. How are you going to get there? This can also be called the 'Methodology'. Discuss here what sources are available, how you will search for relevant information and how you will evaluate the information. What sources are reliable?
+Before starting the research, the team needs to have a plan. It already has specified a goal, namely the question to be answered. How is it going to get there? This can also be called the 'Methodology'. Discuss here what sources are available, how the team will search for relevant information and how it will evaluate the information. What sources are reliable?
 
 \subsection{Literature Analysis}
 
-The mainpart of the Experiment is called the 'Literature Analysis'. This analysis is an detailed report on what you have learned. You can write this report at the end, or during your research. This part can easlily be 3 pages long. I cannot provide instructions here, because of how dependent the analysis is on the literature.
+The mainpart of the Experiment is called the 'Literature Analysis'. This analysis is an detailed report on what the team learned. This part can easlily be 3 pages long. Specific instructions cannot be provided here, because of how dependent the analysis is on the literature.
 
 \subsection{Conclusion}
 
-In your conclusion, you talk about what you have learned. You recap the introduction. In the Protocol, you specified a research question. Answer the question. Lastly, talk about what this answer means and what next step you can make, now you know the answer.
+In thge conclusion, the team talks about what it has learned. Recap the introduction. In the Protocol, specify a research question. Answer the question. Lastly, talk about what this answer means and what next step can be made, now the answer is known.
 
 \newpage
 
 %%% %%%% SECTION 4 %%% %%% 
 \section{User Research}
 
-We do User Research to learn about what our users need and/or want. There are different ways we can find out:
+User Research is done to learn about what the end users need and/or want. There are different ways we can find out:
 
 \begin{itemize}
 	\item Enquête
@@ -481,63 +515,64 @@ We do User Research to learn about what our users need and/or want. There are di
 
 \subsection{Introduction}
 
-After doing this research, you should end up with an research report. Here you write down all your steps, so others can retrace your steps. Working with users is different from working with devices. Users are not constant, they want/do different things. You can do a general User Research, to get an idea of how Users wil interact with the PSP, or you can have a specific question/problem.
+After doing this research, the team should end up with an research report. Here it writes down all the steps, so others can retrace the steps. Working with users is different from working with devices. Users are not constant, they want and do different things. The team can do a general User Research, to get an idea of how Users wil interact with the PSP, or have a specific question/problem.
 
-In the introduction of this report, you describe the problem, if there is one. Argue why you think this question is best answered with User Research, instead of other types. There no need to have a problem to do User Research. Using the 'Observe' method, you can even discover problems.
+In the introduction of this report, describe the problem, if there is one. Argue why the team thinks this question is best answered with User Research, instead of other types. There no need to have a problem to do User Research. Using the 'Observe' method, the team can even discover problems.
 
 \subsection{Research Protocol}
 
-With the Research Protocol, we make clear how we have done our research. Firstly, we define what our Users are. Secondly, we discuss the question that we need answer. Thirdly, we discuss our research plan. Here we discuss the ways to do User Research.
+With the Research Protocol, it is make clear how the team did the research. Firstly, define who the Users are. Secondly, discuss the question that needs an answer. Thirdly, discuss the research plan. How is the research done?
 
 \subsubsection{Define User}
 
-Before we can do User Research, we need to define what users are. It is more complicated than it seems. Your PSP can consist of multiple parts. Each part may have different users. Here, the scope is important again. In the scope, you've defined de PSP. Who will use the PSP? These people are the users. Define for each part of the PSP, the user(s). Elaborate why these people are the users.
+Before the team can do User Research, it needs to define who the users are. It is more complicated than it seems. The PSP can consist of multiple parts. Each part may have different users. Here, the scope is important again. In the scope, the PSP is  defined. Who will use the PSP? These people are the users. Define for each part of the PSP, the user(s). Elaborate why these people are the users.
 
 \subsubsection{Research Question}
 
-Here, there are 2 options: You can either need an answer to a specific question, or you want to see how users interact with the product.
+Here, there are 2 options: The team can either need an answer to a specific question, or want to see how users interact with the product.
 
-First, we need to define the context in which the PSP will be used. How is the PSP used? In what scenario's should the PSP work? It has no value to research a secenario that will never happen. On what location(s) Which other systems are involved? What scenario will never happen? These do not need to be simulated in our research.
+First, it need to define the context in which the PSP will be used. How is the PSP used? In what scenario's should the PSP work? It has no value to research a secenario that will never happen. On what location(s)? Which other systems are involved? What scenario will never happen? These do not need to be simulated in the research.
 
 \subsubsection{Research Plan}
 
 There are a number of ways to do User Research:
 
 \begin{itemize}
-	\item \textbf{Enquête} Research with an Enquête is very common. You create a list with questions and ask potential users to fill in the questionair. The biggest Pro is that you can ask a lot of people at once, using online tools.
-	\item \textbf{Interview} Research by Interview is very handy, because you can ask what the user means directly. If you misunderstand the answer, you can ask for clarfication.
-	\item \textbf{Observe} With Research by Observation, you do not interact with the user. You let the user interact with the system, and you watch and learn. This way, you check if the user does the right thing, without instructions.
-	\item \textbf{A/B Tests} With A/B Tests, you create 2 or more variants of your system. You let users interact with the system. This way you can compare the results, and find the optimal situation.
-	\item \textbf{Usability Tests} With Usability Tests, you check how easy your product is in use. Is it useable?
-	\item \textbf{Expert Review} Some systems are too complex for users to evaluate. Here, you let an Expert review the system, to see if anything goes wrong.
+	\item \textbf{Enquête} Research with an Enquête is very common. Create a list with questions and ask potential users to fill in the questionair. The biggest Pro is that the team can ask a lot of people at once, using online tools.
+	\item \textbf{Interview} Research by Interview is very handy, because the team can ask what the user means directly. If the interviewer misunderstand the answer, he/she can ask for clarfication.
+	\item \textbf{Observe} With Research by Observation, the researcher does not interact with the user. He/She lets the user interact with the system; watch and learn. This way, he/she check if the user does the right thing, without instructions.
+	\item \textbf{A/B Tests} With A/B Tests, Create 2 or more variants of your system. Let users interact with the system. This way the team can compare the results, and find the optimal situation.
+	\item \textbf{Usability Tests} With Usability Tests, Check how easy the product is in use. Is it useable?
+	\item \textbf{Expert Review} Some systems are too complex for users to evaluate. Let an Expert review the system, to see if anything goes wrong.
 \end{itemize}
 
-\noindent Different systems ask for different methods. Different questions ask for different methods. You have defined your users and questions. Now ask yourself, what kind of research is suitable for this system? Elaborate on this.
+\noindent Different systems ask for different methods. Different questions ask for different methods. Defined the users and questions. Now ask what kind of research is suitable for this system? Elaborate on this.
 
-Aks yourself what data you must gather, and how you will order the data. If you prioritze speed, you can use an A/B Test to see what system is faster. In this example, you time the users. In other scenario's, you want to know what kind of input is desired by the users, so an Enquête may be a better options. Think about how data is saved.
+Aks what data must be gathered, how this can be done and how the data will be ordered. Speed is prioritzed, an A/B Test can be used to see what system is faster. In this example, the researcher times the users. In other scenario's, he-she want to know what kind of input is desired by the users, so an Enquête may be a better options. Think about how data is saved.
 
 \subsection{Result Analysis}
 
-After you have formulated the plan, you can execute it. After execution, you gather the results and order it for analysis. Each method has an different output. In the Planning phase, you have thought about how you'll save data. What do you see? What are your observations? Did you expect anything? Is your expectation met?
+After the team has formulated the plan, it can be executed. After execution, it gathers the results and order it for analysis. Each method has an different output. In the Planning phase, the team has thought about how it will save the data. Are there any other relevant observations? What is expected? Is this expectation met?
 
 \subsection{Conclusion}
 
-In your conclusion, you talk about what you have learned. You recap the introduction. In the Protocol, you specified a research question. Answer the question. Lastly, talk about what this answer means and what next step you can make, now you know the answer.
+In the conclusion, talk about what the team have learned. Recap the introduction. In the Protocol, the team specified a research question. Answer the question. Lastly, talk about what this answer means and what next step can be made, now the answer is known.
 
 \newpage
 
 %%% %%% %%% CHAPTER 4 %%% %%% %%%
 \chapter{Scrum Documentation}
+\thispagestyle{fancy}
 
-At some point, we have done enough Research. We know what the system must be able to do. We have defined requirments. Now we need to design our system, so that our system fits the requirements.
+At some point, there is enough Research done. The team knows what the system must be capable of. The team has defined requirments. Now the system needs to be designed, so that it fits the requirements.
 
 \medskip
 \minitoc
 \medskip
 
-\noindent First, we make a Product Backlog. In the Product Backlog, we discuss the US. US are formulated based on the Requirements. Then we base the Product Backlog on the US. 
+\noindent First, make a Product Backlog. In the Product Backlog, the team discusses the US. US are formulated based on the Requirements. The Product Backlog is based upon the Requirements.
 
-\noindent The process is split in multiple so called 'Sprints'. A Sprint has a maximal duration of 2 workweeks. Each Sprint, we follow a specific roadmap:
+\noindent The process is split in multiple so called 'Sprints'. A Sprint has a maximal duration of 2 workweeks. Each Sprint, there is a specific roadmap to  follow:
 
 \begin{enumerate}
 	\item Choose what US will be implemented this Sprint. These US form the 'Sprint Backlog'.
@@ -547,16 +582,16 @@ At some point, we have done enough Research. We know what the system must be abl
 	\item Update the completed US on the Product Backlog.
 \end{enumerate}
 
-\noindent You do not necessarily have to create the Product Backlog, Sprint Backlogs and Sprint Review in a document. You could also look into the use of Azure DevOps.
+\noindent The Product Backlog does not necessarily has to be in a document, just like the Sprint Backlogs and Sprint Review. You could also look into the use of Azure DevOps.
 
 \newpage
 
 %%% %%% SECTION 1 %%% %%%
 \section{Product Backlog}
 
-This document forms the backbone of the Scrum Documentation. In this document, we list all User Stories. There is a specific process that is followed that results in this document.
+This document forms the backbone of the Scrum Documentation. In this document, the team lists all User Stories. There is a specific process that is followed that results in this document.
 
-First, we formulate the User Stories. It is important to know that there is a difference between US and Requirments. A US is a function/feature of the PSP that a user finds valuable. By talking with the client and the user, for example through user research, you find out what the user finds valuable. All those things will become User Stories.
+First, we formulate the User Stories. It is important to know that there is a difference between US and Requirments. A US is a function/feature of the PSP that a user finds valuable. By talking with the client and the user, for example through user research, the team finds out what the user finds valuable. All those things will become User Stories.
 
 \subsection{User Stories}
 
@@ -576,12 +611,12 @@ There are 4 types of User Stories. Each type has their own goal:
 
 \begin{itemize}
 	\item \textbf{Features} Features are also known as User Stories. These terms are used as though they are the same, but they are not. Features describe what het PSP should be/have.
-	\item \textbf{Bug Fixes} Bug Fixes are also User Stories. This can be confusing, because the User doesn't care about your bugs. On the contrary, the User doesn't want them. Because we work with Scrum, we need to put every task on the Product Backlog. Bug Fixes take time, so it is a User Story. The 'user' here, is the developer.
+	\item \textbf{Bug Fixes} Bug Fixes are also User Stories. This can be confusing, because the User doesn't care about the bugs. On the contrary, the User doesn't want them. Because this is Scrum, each task has to be on the Product Backlog. Bug Fixes take time, so it is a User Story. The 'user' here, is the developer.
 	\item \textbf{Technical Debt} Some parts of the project are technical, but not directly visible to the user. It is for this reason that they cannot be put into a Feature. Because they cannot be ignored and the problems grow over time, it is 'debt'. It takes time to, for example, build a backend. The User doesn't see the backend.
-	\item \textbf{Knowledge Acquisition} Similarly to the Technical Debt, there are tasks that take time, and therefore need to be put on the Product Backlog, but are intangible. The difference with Techical Debt is that with Technical Debt, you are building while with Knowledge Acquisition, you are learning.
+	\item \textbf{Knowledge Acquisition} Similarly to the Technical Debt, there are tasks that take time, and therefore need to be put on the Product Backlog, but are intangible. The difference between Techical Debt and Knowledge Acquisition is building and learning.
 \end{itemize}
 
-\noindent For the Feature-type, we have already seen an example. Here are some examples for the other types:
+\noindent For the Feature-type, there is already an example. Here are some examples for the other types:
 
 \emph{As a Developer I want fix the PHP-error in 'login.php' on line 34 when a wrong password is entered so I can finish the project.}
 
@@ -593,7 +628,7 @@ There are 4 types of User Stories. Each type has their own goal:
 
 \subsubsection{Table Format}
 
-No that we have formulated User Stories, we can order them and create the Product Backlog. The Product Backlog is 'alive', in the sense that it can change continuously. The Product Backlog is most efficiently stored in an Exel-file. You can also use a service like MS DevOps. There is a table like the one below:
+No that the team has formulated User Stories, it can order them and create the Product Backlog. The Product Backlog is 'alive', in the sense that it can change continuously. The Product Backlog is most efficiently stored in an Exel-file. The team can also use a service like MS DevOps. There is a table like the one below:
 
 \medskip
 \begin{tabularx}{0.8\textwidth} { 
@@ -615,12 +650,12 @@ No that we have formulated User Stories, we can order them and create the Produc
 \noindent As you can see, there are 6 columns:
 
 \begin{enumerate}
-	\item \textbf{ID -} This column numbers all User Stories, so we can easily reference them. US can change, but the ID should never change. If a US becomes obsolete or the meaning changes significantly, you should remove the US and add a new one (with a new ID).
-	\item \textbf{Priority -} We use the MoSCoW-system to prioritize our work. MoSCoW stands for: Must, Should, Could and Would.
+	\item \textbf{ID -} This column numbers all User Stories, so the team can easily reference them. US can change, but the ID should never change. If a US becomes obsolete or the meaning changes significantly, remove the US and add a new one (with a new ID).
+	\item \textbf{Priority -} Use the MoSCoW-system to prioritize the work. MoSCoW stands for: Must, Should, Could and Would.
 	\item \textbf{Role} The part of the US that shows who the US applies to: As a ...
 	\item \textbf{Reason} The part of the US that shows what and why the Role wants: I want ... so I can ...
-	\item \textbf{Tasks -} Here we list the task that are asociated with this US.
-	\item \textbf{AC -} Acceptance Criteria. This part is deeply correlated with the Test Report. In the Acceptance Criteria, you specify when the Requirement can get the Status 'Finished'. When writing these down, you also create the 'Test Report' document. It is important that you create the Testplan before Designing the system. This way, you will not test what the system can, but if the system satifies the client.
+	\item \textbf{Tasks -} List the task that are asociated with this US here.
+	\item \textbf{AC -} Acceptance Criteria. This part is deeply correlated with the Test Report. In the Acceptance Criteria, specify when the Requirement can get the Status 'Finished'. When writing these down, also create the 'Test Report' document. It is important that the team creates the Testplan before designing the system. This way, it will not test what the system can, but if the system satifies the client.
 	\item \textbf{Status -} A US has one of 6 states: 
 		\emph{Pending}, \emph{Todo}, \emph{Discussing}, \emph{Developing}, \emph{Confirming} or \emph{Finished}
 \end{enumerate}
@@ -655,13 +690,13 @@ The selected US are put in the Sprint Planning.
 \end{tabularx}
 \medskip
 
-\noindent The chosen US should be put into the Sprint Backlog. To complete the User Stories, there are tasks writen down. After lIsting the User Stories in the table, you can list all tasks that should be completed in the coming sprints. 
+\noindent The chosen US should be put into the Sprint Backlog. To complete the User Stories, there are tasks writen down. After Listing the User Stories in the table, list all tasks that should be completed in the coming sprint. 
 
-Try to find as much US you can complete in the Sprint. Keep the Priority and depencencies in mind. 'Musts' should be implemented before all others. Some User Stories are dependent on others. You should first, do the independent User Stories, before the dependent, for the simple reason that you cannot complete a User Story that is dependent on another unfinished US.
+Try to find as much US the team will be able to complete in the next Sprint. Keep the Priority and depencencies in mind. 'Musts' should be implemented before all others. Some User Stories are dependent on others. First, do the independent User Stories, before the dependent, for the simple reason that it is not possible to complete a User Story that is dependent on another unfinished US.
 
 \subsubsection{Tasks}
 
-After chosing the US you'll work on this Sprint, you need to delegate the workload. Give each teammember an task. All teammembers should have an approximately even workload. The Sprint Backlog is a great place and time to record these arrangements. Write down specifically who is responsible for what. During the Sprint, each day actually, you organize a Stand Up Meeting. Here you shortly update your teammembers on what you're working on. You can ask for feedback and help. This way, you can identify bottleneck early in the Sprint.
+After chosing the US that the team will work on this Sprint, delegate the workload. Give each teammember an task. Teammembers should have an approximately even workload. The Sprint Backlog is a great place and time to record these arrangements. Write down specifically who is responsible for what. During the Sprint, each day actually, it recommended to organize a Stand Up Meeting. Here the team shortly updates the other teammembers on what they're working on. Here they can ask for feedback and help. This way, teammembers can identify bottleneck early in the Sprint and prevent wasting of time.
 
 \newpage
 
@@ -691,14 +726,15 @@ Repeat the Table, but than updated:
 \end{tabularx}
 \medskip
 
-\noindent Then, you give a short description of the tasks that were completed and the tasks that are not. Discuss specifically what is not yet done.
+\noindent Then, give a short description of the tasks that were completed and the tasks that are not. Discuss specifically what is not yet done. Discuss who was responsible for the unfinished tasks and what is being done to prevent not finishing tasks, next Sprint.
 
 \newpage
 
 %%% %%% %%% CHAPTER 5 %%% %%% %%%
 \chapter{Design}
+\thispagestyle{fancy}
 
-Up until this point, it is possible that you have no idea what technology to use. It can become a website, desktop-application or fysical device. It is at this point you design the PSP. It really depends on what you come up with, what diagrams/designs you end up with. If you find out that an website is the best solution, you may need a database, and for the database you make an ERD. If you find that a fysical device is most helpful, you need an Wiring Diagram. I go through a list with some designs/diagrams:
+Up until this point, it is possible that the team has no idea what technology to use. It can become a website, desktop-application or fysical device. It is at this point it designs the PSP. It really depends on what the team comes up with, what diagrams/designs it ends up with. If it finds out that an website is the best solution, the project may need a database, and for the database the team makes an ERD. If the team finds that a fysical device is most helpful, it needs to make an Wiring Diagram. Here is a list with some designs/diagrams:
 
 \begin{itemize}
 	\item Architecture Diagram
@@ -711,14 +747,17 @@ Up until this point, it is possible that you have no idea what technology to use
 	\item Pseudo Code
 \end{itemize}
 
+There is also a Security Report, that belongs here. In this document, security measures are specified. Write about what measures are taken, what measurements are recommended and how the system is secured.
+
 \newpage
 
 %%% %%% %%% CHAPTER 6 %%% %%% %%%
 \chapter{Reflection}
+\thispagestyle{fancy}
 
-At each pivotal point, it is helpful to reflect. You reflect on you choices, either consciously or unconsciously. It is helpful to do it conscious, and to give it words. This way you can reflect on your reflection.
+At each pivotal point, it is helpful to reflect. Teammembers reflect on their choices, either consciously or unconsciously. It is helpful to do it conscious, and to give it words.
 
-In the Test Report you reflect on your requirements and PSP. In presenations, you reflect on the PSP and the process. In the Demonstration of Product, you reflect op the PSP. In the Personal Reflection, you reflect on the colaboration of the team, your personal contribution and the process.
+In the Test Report the team reflects on the requirements and PSP. In presenations, the teammembers reflect on the PSP and the process. In the Demonstration of Product, they reflect op the PSP. In the Personal Reflection, they reflect on the colaboration of the team, their personal contribution and the process.
 
 \medskip
 \minitoc
@@ -728,38 +767,38 @@ In the Test Report you reflect on your requirements and PSP. In presenations, yo
 %%% %%% SECTION 1 %%% %%%
 \section{Test Report}
 
-In this Report we use the requirements to reflect on the PSP. We do this for multiple reasons. First of all, we want to know if the PSP does what it should do. Secondly, we want to demonstrate to the client that the PSP works. 
+In this Report the team uses the requirements to reflect on the PSP. It does this for multiple reasons. First of all, the team wants to know if the PSP does what it should do. Secondly, it wants to demonstrate to the client that the PSP works. 
 
-During testing, we zoom out. We first test very small parts. Then we go one level bigger, until we have tested the whole PSP.
+During testing, it zooms out. The team first tests very small parts. Then it goes one level bigger, until it has tested the whole PSP.
 
-We start with one or more Unit Tests for each User Story (of the type Feature and Technical Debt). We take only these types because Bug Fixes and Knowledge Acquisition, we cannot check with tests. Then we combine multiple Units and write Component Tests for the Components of the system. 
+The team starts with one or more Unit Tests for each User Story (of the type Feature and Technical Debt). It takes only these types because Bug Fixes and Knowledge Acquisition, cannot be checked with tests. Then the team combines multiple Units and write Component Tests for the Components Tests of the system. 
 
-To make sure that the system works as it should, we should not only have a System Test. If the System Test fails, have no idea what went wrong. It is for this reason that we begin by testen on very small level. During development, we continually test. Only tests that show that a Feature/US is done, we write down.
+To make sure that the system works as it should, the team should not only have a System Test. If the System Test fails, it has no idea what went wrong. It is for this reason that the team begins by testing on very small level. During development, it continually tests. Only tests that show that a Feature/US is done, the write down and puts into this report.
 
-At the start of the project, you should use the Git automated test functionality. Using Git, you can do Continuous Integration and Continuous Development Tests (CI/CD).
+At the start of the project, the team could implemment the Git automated test functionality. Using Git, it can do Continuous Integration and Continuous Development Tests (CI/CD).
 
-Test should be written right after the Product Backlog is made. This means that the tests are already clear, before you are building and developing. This has a big advantage: You test really what you want to test. Your results are sincere. It happens a lot that tests are written after the PSP is finished, so that the PSP checks all the boxes. No wonder it 'works' but it really doesn't...
+Test should be written right after the Product Backlog is made. This means that the tests are already clear, before the team is building and developing. This has a big advantage: What is being tested is what the client wants, not what the team has. The results are sincere. It happens a lot that tests are written after the PSP is finished, so that the PSP checks all the boxes. No wonder it 'works' but it really doesn't...
 
 \subsection{Introduction}
 
-The Test Report will have a couple of chapters, beginning with an Introduction. It is good to refresh the memory of the reader: What is the project? What is the PSP? Point back to the Requirments and Product Backlog with User Stories, based upon which we test.
+The Test Report will have a couple of chapters, beginning with an Introduction. It is good to refresh the memory of the reader: What is the project? What is the PSP? Point back to the Requirments and Product Backlog with User Stories, based upon which this report is written.
 
 Secondly, the tests are numbered. Then, for each test, the following things are elaborated:
 
 \subsection{Test Details}
 
-For each User Story, we write one or more relevant tests. Keep in mind, that if the Product Backlog, more specificly the User Stories or their Acceptance Criteria, changes, the Testplan also has to change. 
+For each User Story, the team writes one or more relevant tests. Keep in mind, that if the Product Backlog, more specificly the User Stories or their Acceptance Criteria, changes, the Testplan also has to change. 
 
 \subsubsection{Type of Test}
-We distinguish between a number of different types of tests:
+There is a difference between a number of different types of tests:
 
 \paragraph{Unit Test}
 
-In a Unit test, we test a 'Unit'. A Unit is a very small part of the system, at the level of the User Story.
+In a Unit test, the team tests a 'Unit'. A Unit is a very small part of the system, at the level of the User Story.
 
 \paragraph{Regression Tests}
 
-With Regression Tests, we test Regressively. Once we have tested a feature, we normaly never test that feature specifically. With Regression Tests, we rerun all old tests to check if the system still functions like it should. Almost always, regressive testing is automated. You can set up a pipline in Git to automate this.
+With Regression Tests, the team tests Regressively. Once it has tested a feature, it normaly never tesst that feature specifically again. With Regression Tests, the team - or Git with CI/CD - reruns all old tests to check if the system still functions like it should. Almost always, regressive testing is automated. The team can set up a pipline in Git to automate this.
 
 \paragraph{Component Test}
 
@@ -767,11 +806,11 @@ A system is seperated into multiple Units. A number of Units that work together 
 
 \paragraph{System Test}
 
-With a System Test, we test the whole system.
+With a System Test, the team tests the whole system.
 
 \paragraph{Integration Test}
 
-We have Unit Tests to check if specific parts work. There comes a time when we need to integrate new, already seperatly tested parts, into the system. We then use Integration Tests to check if the system still works if the new part is integrated, and, more important, if the Units work together.
+The team has Unit Tests to check if specific parts work. There comes a time when it needs to integrate new, already seperatly tested parts, into the system. It then uses an Integration Tests to check if the system still works if the new part is integrated, and, more important, if the Units work together.
 
 \paragraph{Acceptance Test}
 
@@ -779,27 +818,27 @@ It looks very much like the System Test, but this is specifically for the client
 
 \subsubsection{Relevance}
 
-For each test, you point back to the relevant User Stories, Requirements and Acceptance Criteria. The details of each tests further contain at least the following sections:
+For each test, point back to the relevant User Stories, Requirements and Acceptance Criteria. The details of each tests further contain at least the following sections:
 
 \paragraph{Scope}
 
-Here we discuss what type of test this is. We specify why this test is needed and what this test tests. Just as important, you spend time describing what is not part of the test.
+Here, discuss what type of test this is. The team specifies why this test is needed and what this test tests. Just as important, spend time describing what is not part of the test.
 
 \paragraph{Acceptance Criteria}
 
-You repeat the acceptance Criteria. These are written down in the Product Backlog.
+Repeat the acceptance Criteria. These are written down in the Product Backlog.
 
 \paragraph{Method}
 
-In this part, you lay out a very specific Method of approach. Someone who doesn't know the project, must be able to follow the steps. Very much like the Expermental Research Report.
+Lay out a very specific Method of approach, in this part. Someone who doesn't know the project, must be able to follow the steps. Very much like the Experimental Research Report.
 
 \subsubsection{Data to Save}
 
-Depending on the type of test, there is different data that needs to be saved. You can store values in a table or in a CSV-file. Write down what data is to be saved. In the Results, the data is shown.
+Depending on the type of test, there is different data that needs to be saved. It is possible to store values in a table or in a CSV-file. Write down what data is to be saved. Under the 'Results' heading, the data is shown.
 
 \subsection{Results}
 
-For each test, you create a Result section. Here, the data is shown, either in table-form or otherwise. The data is compared with the AC. If the AC are met, the test is finished successfully. This can be reported. If the AC are not met, we need to give a detailed report on why. Then, elaborate how this can be fixed. Is it a fundamental design flaw or is there something wrong with one of the components? We can also evaluate the test. Is it a good test? It is important to keep in mind that finishing a test successfully is not a goal on its own. The test has a goal itself, namely to check the Requirements. If the test does not accuralty test the requirement, the test is wrong. Only then can the test be changed.
+For each test, there is a Result section. Here, the data is shown, either in table-form or otherwise. The data is compared with the AC. If the AC are met, the test is finished successfully. This can be reported. If the AC are not met, the team gives a detailed report on why. Then, elaborate how this can be fixed. Is it a fundamental design flaw or is there something wrong with one of the components? It is also possible that the test is flawed. This can also be examined here. Is it a good test? It is important to keep in mind that finishing a test successfully is not a goal on its own. The test has a goal itself, namely to check the Requirements. If the test does not accuralty test the requirement, the test is wrong. Only then can the test be changed.
 
 \subsection{Conclusion}
 
@@ -810,7 +849,7 @@ Conclude the Test Report by pointing back to the requirements. If all tests are 
 %%% %%% SECTION 2 %%% %%%
 \section{Personal Reflection}
 
-Reflection on our personal work and roles in the project is important. By doing this, we get a better understanding what we did in the project, and how to improve next time. Here are some questions you can ask yourself. 
+Reflection on personal work and roles in the project is important. By doing this, teammembers get a better understanding what they did in the project, and how to improve next time. Here are some questions teammembers can ask themselves. 
 
 \begin{itemize}
 	\item How have you used your time?
@@ -834,7 +873,7 @@ Reflection on our personal work and roles in the project is important. By doing 
 %%% %%% SECTION 3 %%% %%%
 \section{Presentations}
 
-You can give a presenation in an almost, unlimited number of ways. I only want to give some examples for common scenario's. It is likely that you will have to give multiple presentation during the project. It is really helpful to have a template for the presentation. This way, you don't have use valueable time of creating the layout of the PowerPoint over and over again. Besides, after a while spectators will notice that your presentations are part of your brand. This looks/is professional. You can simply create a PowerPoint template at the start of the project.
+A presenation can be structured in an almost, unlimited number of ways. Here, only some examples for common scenario's are described. It is likely that the team will have to give multiple presentation during the project. It is really helpful to have a template for the presentation. This way, the team doesn't have use valueable time of creating the layout of the PowerPoint over and over again. Besides, after a while spectators will notice that the presentations are part of the brand. This looks/is professional. The team can simply create a PowerPoint template at the start of the project.
 
 \subsection{Final Presentation}
 
@@ -844,16 +883,16 @@ In this presentation, the main focus is on the PSP. Follow the following steps:
 	\item Introduction
 	\item Talk about the client and the problem.
 	\item Talk about what potential solutions were thought of.
-	\item Talk about your solution and why this a better option.
-	\item Talk about what your PSP solves, and how it works.
+	\item Talk about the solution and why this the better option.
+	\item Talk about what proboem the PSP solves, and how it works.
 	\item Give a live demo.
 	\item Show the product backlog and point how features are implemented.
 	\item Talk about how certain problems came up during development and how these were handled. (optional)
-	\item Talk about your team and the tasks that each member did.
+	\item Talk about the team and the tasks that each member did.
 	\item Recap how the PSP helps the client and end with a Q\&A.
 \end{enumerate}
 
-\noindent Introductions can be given in a number of ways. The simple reseaon is stating the obvious: Who are you and what is the project? An other option is beginning with a scenario. This hooks the spectators for the rest of the presentation. Paint a picture with a question. In the end, you can answer the question. You can even state that, at the end, you'll have some questions for the audience. Nobody said that an introduction should be boring. This is true for all presentations, by the way.
+\noindent Introductions can be given in a number of ways. The simple reseaon is stating the obvious: Who are part of the team and what is the project? An other option is beginning with a scenario. This hooks the spectators for the rest of the presentation. Paint a picture with a question. In the end, presenters can answer the question. It can even stated that, at the end, there are some questions for the audience. Nobody said that an introduction should be boring. This is true for all presentations, by the way.
 
 \subsection{Sprint Review}
 
@@ -864,7 +903,7 @@ In this presentation, the main focus is on the Sprint. Follow the following step
 	\item Talk about the client and the problem.
 	\item Show the product backlog. Show the planning that was made and show what tasks were completed.
 	\item Talk about how certain problems came up during development and how these were handled.
-	\item Talk about your team and the tasks that each member did.
+	\item Talk about the team and the tasks that each member did.
 	\item Show what tasks will be completed in the next sprint.
 	\item Recap how the PSP helps the client and end with a Q\&A.
 \end{enumerate}
@@ -876,26 +915,26 @@ In this presentation, the main focus is on the Process. Follow the following ste
 \begin{enumerate}
 	\item Introduction
 	\item Talk about the client and the problem.
-	\item Talk about how you experienced the collaboration with the team.
-	\item Talk extensively about how to started the work, what you did and how.
+	\item Talk about how each member experienced the collaboration with the team.
+	\item Talk extensively about how to started the work, what each member did and how.
 	\item Show the product backlog. Show the planning that was made and show what tasks were completed.
 	\item Talk about how certain problems came up during development and how these were handled.
-	\item Talk about your team and the tasks that each member did.
+	\item Talk about the team and the tasks that each member did.
 	\item Recap how the PSP helps the client.
 \end{enumerate}
 
-\noindent For your project, other templates may be relevant. You can easily develop them yourself.
+\noindent For the project, other templates may be relevant. The team can easily develop them.
 
 \newpage
 
 %%% %%% SECTION 4 %%% %%%
 \section{Proccessed Feedback}
 
-Feedback is very helpful. There are number of ways that you can recieve feedback. You can organize special moments for users to give you feedback in User Research. You can ask for feedback during a Sprint Review or other presentation. You can also recieve feedback when you don't ask for it. You may not be in the 'recieve feedback mode' mentally, so you may not recognize it when it is given.
+Feedback is very helpful. There are number of ways that the team recieves feedback. It can organize special moments for users to give feedback in User Research. It can ask for feedback during a Sprint Review or other presentation. The team can also recieve feedback when it isn't looking for it. The team may not be in the 'recieve feedback mode' mentally, so it may be hard to recognize it when feedback is given.
 
 \medskip
 
-\noindent To correctly process feedback, it can be very helpful to organize the process. You can gather the feedback continually in a document, or gather it in a document to be process at sprint reviews. This is a central moment where important decisions are made. I advize the second method. This way the feedback can be accesed by the team and, if necessary, implemented in a new User Story. Make a document with the following table:
+\noindent To correctly process feedback, it can be very helpful to organize the process. Gather the feedback continually in a document to be processed at Sprint Reviews. This is a central moment where important decisions are made. This way the feedback can be accesed by the team and, if necessary, implemented in a new User Story. Make a document with the following table:
 
 \medskip
 \begin{tabularx}{0.8\textwidth} { 
@@ -913,34 +952,35 @@ Feedback is very helpful. There are number of ways that you can recieve feedback
 \end{tabularx}
 \medskip
 
-\noindent Not all Feedback is implemented. Why is it not implemented? The document should show how the team processed the feedback. Show that you have thought about it. If the feedback is implemented in a User Story, you should point to the User Story. Note that, if feedback is implemented, requirments may need to change.
+\noindent Not all Feedback is implemented. Why is it not implemented? The document should show how the team processed the feedback. Show that the feedback is considered. If the feedback is implemented in a User Story, point to the User Story. Note that, if feedback is implemented, requirments may need to change. This may change everything, but can definitely be worth it.
 
 \newpage
 
 %%% %%% SECTION 5 %%% %%%
 \section{Demonstration of Product}
 
-The Demo is almost always part of the Final Presentation. Here I provide some additional tips \& tricks for the demonstration:
+The Demo is almost always part of the Final Presentation. Here are some additional tips \& tricks for the demonstration:
 
 \begin{itemize}
-	\item Test your Demonstration under the conditions you want to give it. For example, the wifi my be different with a lot of people.
-	\item Have a backup of your Demonstration in the form of a video.
+	\item Test the Demonstration under the conditions it is given under. For example, the wifi may be different with a lot of people.
+	\item Have a backup of the Demonstration in the form of a video.
 	\item Keep it short. If it takes 10 steps to show the process, there is no need to show them all. All the audience wants to see, is the end results.
 	\item What is the problem? Make this super clear!
-	\item Do not make the audience watch you type. Have this automized in some way, because you cannot provide commentary while you type. Providing commentary is your job!
+	\item Do not make the audience watch you type in a password or other things. Have this automized in some way, because the presenter cannot provide commentary while he/she types. Providing commentary is his/hers job!
 	\item Practice on location.
 	\item On high end projects, there is a duplicate system.
-	\item Never, never, troubleshoot in real time. If the problem cannot be fixed in 30 seconds, don't enter debug mode. Just go to the video.
+	\item Never, never, never troubleshoot in real time. If the problem cannot be fixed in 30 seconds, don't enter debug mode. Just go to the video.
 \end{itemize}
 
-\noindent It goes without saying that a Demo shows the functionality of your PSP. You can choose to show all functions, based on the amount of time. The demo should never be longer than 5 minutes. 2 minutes is more than enough. You can also choose to only show the main functionality. You can talk about what framework, you use but keep the techical skills of the audience in mind. You do not want to tire them with irrelevant details.
+\noindent It goes without saying that a Demo shows the functionality of the PSP. Choose to show all functions, or only the key functions, based on the amount of time. The demo should never be longer than 5 minutes. 2 minutes is more than enough. Keep the techical skills of the audience in mind. Do not tire them with irrelevant details.
 
 \newpage
 
 %%% %%% %%% CHAPTER 7 %%% %%% %%%
 \chapter{Collaborative Documentation}
+\thispagestyle{fancy}
 
-While working together, you create some document to increase productivivity and to make the process more smooth. You need to interact with the client, and with your teammembers. There may be third parties involved. You have to create an agreement to sign, you in case of anything, you have decided what to do.
+While working together, create some documents to increase productivivity and to make the process more smooth. The teammembers need to interact with the client, and with other teammembers. There may even be third parties involved. Therefore, the team has to create an agreement to sign that, in case of anything, decides what should happen. This way, everyone knows what the procedure is.
 
 \medskip
 \minitoc
@@ -950,23 +990,23 @@ While working together, you create some document to increase productivivity and 
 %%% %%% SECTION 1 %%% %%%
 \section{Collaboration Agreement}
 
-At the beginning of the project, before you do anything with the team, you should write and sign a Collaboration Agreement. In this contract, you record some ground rules for engagement. How do you work? How are agreements recorded? The Collaboration Agreement should at least cover the following topics:
+At the beginning of the project, before anything happens, the team should write and sign a Collaboration Agreement. In this contract, ground rules for engagement are recorded. How does the team work? How are agreements recorded? The Collaboration Agreement should at least cover the following topics:
 
 \subsection{General Project Information}
 
-In each document, you provide some General Project Information. This is especially important in the Collaboration Agreement. This document will be signed by all parties involved; meaning all teammembers, clients and others.
+In each document, the team provides some General Project Information. This is especially important in the Collaboration Agreement. This document will be signed by all parties involved; meaning all teammembers, clients and others.
 
 \subsection{Roles}
 
-Talk about the roles in the project. There is a client and a projectteam. There may be others involved. Define their roles and responsibilities. In the team, there are also roles. There is a minutes secretary, Scrum Master and Product Owner. You can even decide to appoint a special member who will handle the contacts with the client. Name the role, sumerize the responsibilties and name the person.
+Talk about the roles in the project. There is a client and a projectteam. There may be others involved. Define their roles and responsibilities. In the team, there are also roles. There is a minutes secretary, Scrum Master and Product Owner. The team can even decide to appoint a special member who will handle the contacts with the client. Name the role, sumerize the responsibilties and name the person.
 
 \subsection{Timetable}
 
-In this section, you agree upon a timetable. From when to when is the project. When is the deadline. How many time is invested by the projectteam and the client. Who is responsible for investing enough time. Are there specific days that are used?
+In this section, the team agrees upon a timetable. From when to when is the project? When is the deadline? How many time is invested by the projectteam and the client? Who is responsible for investing enough time? Are there specific days that are used?
 
 \subsection{Communication Channels}
 
-In this section, you agree upon a channel for communication. Some agreements are not put into a document. How are agreements made? How do you inform the team about sickness? How do you give the client an update?
+In this section, the team agrees upon a channel for communication. Some agreements are not put into a document. How are these agreements made? How are teammembers informed the team about sickness? How does the team update the client?
 
 \subsection{Confidentiality \& Exclusivity}
 
@@ -974,7 +1014,7 @@ The client want to know if the PSP is his/hers. Who owns the product and all the
 
 \subsection{Reporting \& Management}
 
-As a team, you'll collaborate on certain topics. Where are reports stored? Who have access? How are the product backlog changed? Who is responsible for the Product backlog and other documents? How is the code managed? Is Git used?
+As a team, there will be collaboration on certain topics. Where are reports stored? Who has access? How are the product backlog changed? Who is responsible for the Product Backlog and other documents? How is the code managed? Is Git used?
 
 \subsection{Dispute Resolvement}
 
@@ -982,7 +1022,7 @@ How are disputes resolved? It depense on who have a dispute. If the team and the
 
 \subsection{Worst Case Scenario's}
 
-Lastly, you want to discuss some worst case scenario's. Of course we hope this is never used. Parts of this, will also be put in the Risk Analysis.
+Lastly, the team discusses some worst case scenario's. Of course, the team hopes this is never used. Parts of this, will also be put in the Risk Analysis.
 
 \subsubsection{Sickness}
 
@@ -994,18 +1034,18 @@ What happens if a teammember is abscent for a long time? How is this treated by 
 
 \subsubsection{Neglect}
 
-What happens if a teammember or client, or even the complete team, neglects the project or responsibilities? What is the procedure?
+What happens if a teammember or client, or even the complete team, neglects the project or his/her responsibilities? What is the procedure?
 
 \bigskip
 
-\noindent There are a lot of questions. The more you can answer right now, the less headache you'll have when it actually happens. At bottom of the document, you write all names and the date. Then each party signs the agreement. Each party recieves a copy.
+\noindent There are a lot of questions. The more are answered right now, the less headache there will be when it actually happens. At bottom of the document, all parties involved write their name and date of signing. Each party recieves a copy.
 
 \newpage
 
 %%% %%% SECTION 2 %%% %%%
 \section{Notes of Meetings}
 
-It is customary for meetings to have a so called 'minutes secretary'. He/she is appointed by the projectteam, and is usually a teammember. In the notes, you write down what is talked about. Who made certain statements and agreements. It will work as a short report on what was discussed. If someone did not attend the meeting, and scans the document, he/she should get a clear picture what was discussed. Be sure to keep the document short. It should never be longer than 2 pages, even if the meeting was 4 hours long.
+It is customary for meetings to have a so called 'minutes secretary'. He/she is appointed by the projectteam, and is usually a teammember. In the notes, write down what is talked about. Who made certain statements and agreements? It will work as a short report on what was discussed. If someone did not attend the meeting, and scans the document, he/she should get a clear picture what was discussed. Be sure to keep the document short. It should never be longer than 2 pages, even if the meeting was 4 hours long.
 
 \newpage
 
@@ -1015,18 +1055,17 @@ It is customary for meetings to have a so called 'minutes secretary'. He/she is 
 
 \section{Transfer Documentation}
 
-If the project is finished, and you stop working on it, someone might go on with the project and futher develop it. Even if you know nothing about this, you should make this documentation. Effectively, you are making these documents while you're working on the project. It is your product backlog, testreports, among others. In the end, you hand over all your documents to the client. He/she may not read it all, but he/she needs to have it, to have full control. 
+If the project is finished, and the team stops working on it, someone might go on with the project and futher develop it. Even if the team knows nothing about this, the team should make this documentation. Effectively, the teammembers are making these documents while they're working on the project. It is the product backlog, testreports, among others. In the end, hand over all the documents to the client. He/she may not read it all, but he/she needs to have it, to have full control. 
 
-Besides all documents and the PSP, there is a special folder with Transfer Documentation. Here we assume that another team of developers continues with the project. What do these developers need to know?
+Besides all documents and the PSP, there is a special folder with Transfer Documentation. Here the team assumes that another team of developers continues with the project. What do these developers need to know?
 
 \subsection{Accompanying Transfer Document}
 
- First of all, it is a good idea to create a special 'accompanying transfer document'. In this document, you sumerize what you have done, list all documents in the Transfer Documentation and give some recommendations. What documents should make up the Transfer Documentations? At least:
+ First of all, it is a good idea to create a special 'accompanying transfer document'. In this document, the team summarizes what it has done, lists all documents in the Transfer Documentation and gives some recommendations. What documents should make up the Transfer Documentations? At least:
 
 \begin{itemize}
 	\item Accompanying Transfer Document
 	\item Scope of the Project
-	\item Risk Analysis
 	\item Requirements Analysis
 	\item All Research Reports (Experimental, Literature and User)
 	\item Product Backlog
@@ -1034,26 +1073,28 @@ Besides all documents and the PSP, there is a special folder with Transfer Docum
 	\item Sprint Reviews
 	\item All Design Documents
 	\item All Test Documents
-	\item Processed Feedback
 	\item Demonstration of the PSP
 \end{itemize}
 
-\noindent It may be a good idea, to mention in the Accompanying Transfer Document, that some documents that were made are not included in the Transfer Documentation.
+\noindent It may be a good idea, to mention in the Accompanying Transfer Document, that some documents that were made are not included in the Transfer Documentation. They are included anyway, because they help the potentially new projectteam understand what the current team has done.
 
 \newpage
 
 %%% %%% %%% CHAPTER 8 %%% %%% %%%
 \chapter{Conclusion}
+\thispagestyle{fancy}
 
 As we have seen in this documents, are there a lot of documents that are usally forgotten. If a document is not forgotten, there is missing something. I cannot be sure that I have included every detail about every document, but I believe that following this guide, will help you. It'll help you to see the big picture. A lot of the documents are dependent on eachother. The Scope and Collaboration Agreement are the backbone of the collaboration. Based on the Scope, we build the Requirements Analysis and a Risk Analysis. Based on the Requirements Analysis, we build the Product Backlog. The PSP is build to fullful the User Stories. To Build the PSP, we write Research Reports. We do this in Sprints. Each Sprint we write a Sprint Backlog and Sprint Review, based, again, on the Product Backlog. Then we write Test Reports where we test based on the Requirements. I could go on, but you get the point.
 
 \bigskip
 
-Thijs Dregmans, 22 December 2022
+Thijs Dregmans
+
+%\appendix
 
 %%% %%% %%% CHAPTER 9 %%% %%%% %%%
 \chapter{Definitions}
-
+\thispagestyle{fancy}
 
 \noindent\textbf{AC -} Acceptance Criteria
 
@@ -1107,6 +1148,8 @@ Thijs Dregmans, 22 December 2022
 
 \noindent\textbf{Status -} A codeword that indicates the progress on a particular requirment.
 
+\noindent\textbf{SWOT-analysis -} A type of risk analysis. 'SWOT' stands for Strength, Weakness, Opportunity and Threat.
+
 \noindent\textbf{Unit Test -} A Test that tests a small part of the system, at the level of the User Story.
 
 \noindent\textbf{US -} User Story. A function or feature of the Potentitally Shippable Product.
@@ -1115,46 +1158,103 @@ Thijs Dregmans, 22 December 2022
 
 \newpage
 
-\end{document}
+%%% %%% %%% CHAPTER 9 %%% %%% %%%
+\chapter{Change Log}
+\thispagestyle{fancy}
 
+\medskip
+\begin{tabularx}{0.8\textwidth} { 
+  | >{\raggedright\arraybackslash}X 
+  | >{\raggedright\arraybackslash}X 
+  | >{\raggedright\arraybackslash}X | }
+ \hline
+ Version & Date & Description \\
+ \hline
+ 1.0 & 2023-01-07 & First definite version. \\
+ \hline
+\end{tabularx}
+\medskip
+
+
+\newpage
 \begin{comment}
+%%% %%% %%% Bibliography %%% %%% %%%
 
-Sources:
+\begin{thebibliography}{1}
+\thispagestyle{fancy}
 
-https://en.wikipedia.org/wiki/Requirements_analysis
-https://reqexperts.com/wp-content/uploads/2015/07/writing_good_requirements.htm
+\bibitem{Requirements1}
+Wikipedia (2022, December) \emph{Requirements Analysis}:
+
+https://en.wikipedia.org/wiki/Requirements\_analysis
+
+\bibitem{Requirements2}
+Requirements Experts (1993) \emph{Requirements Analysis}:
+
+https://reqexperts.com/wp-content/uploads/2015/07/writing\_good\_requirements.htm
+
+\bibitem{Scope}
+Martins, J. (2022, May 3) \emph{De snelle handleiding voor het bepalen van het projectbereik in 8 stappen}:
+
 https://asana.com/nl/resources/project-scope
+
+\bibitem{Risks}
+Indeed Editorial Team (2022, May 31) \emph{10 Common Project Risks (Plus the Steps To Solve Them)}:
+
 https://www.indeed.com/career-advice/career-development/project-risks
-My own documentation for projects
+
+\bibitem{Previous Documets}
+Dregmans, T. (2022) \emph{Documents for previous projects}
+
+\bibitem{Question}
+THE WRITING CENTER (2018, August 8) \emph{How to Write a Research Question}:
+
 https://writingcenter.gmu.edu/writing-resources/research-based-writing/how-to-write-a-research-question
+
+\bibitem{Theoretical Framework}
+University of Southern California (2023, January 3) \emph{Research Guides}:
+
 https://libguides.usc.edu/writingguide/theoreticalframework
+
+\bibitem{Product Backlog}
+ Raeburn, A. (2022, May 26) \emph{What is a product backlog? (And how to create one)}:
+
 https://asana.com/nl/resources/product-backlog
-https://www.visual-paradigm.com/support/documents/vpuserguide/2607/2825/86356_statusofause.html
+
+\bibitem{Status Codewords}
+Visual Paradigm (2022) \emph{Status of a user story}:
+
+https://www.visual-paradigm.com/support/documents/vpuserguide/2607/2825/86356\_statusofause.html
+
+\bibitem{DevOps}
+Microsoft (2022) \emph{Azure DevOps}:
+
 https://dev.azure.com/
+
+\bibitem{Reflection}
+Sutton, J. (2021, March 31) \emph{What Is Sports Psychology? 9 Scientific Theories \& Examples}:
+
 https://positivepsychology.com/introspection-self-reflection/spo
-https://harperjames.co.uk/article/guide-to-collaboration-agreements/#section-5
+
+\bibitem{Reflection}
+Pearne, S. (2022, June 13) \emph{Details of the joint project}:
+
+https://harperjames.co.uk/article/guide-to-collaboration-agreements/\#section-5
+
+\bibitem{Reflection}
+Berkun, S. (2011, October 4) \emph{How to give a perfect demo}:
+
 https://scottberkun.com/2011/how-to-give-a-perfect-demo/
+
+\bibitem{Reflection}
+Lucid Content Team (2022) \emph{How to Develop a Stellar Scrum Product Backlog}:
+
 https://www.lucidchart.com/blog/how-to-develop-a-product-backlog-in-agile
 
-
-To do:
-
-do not write 'me', 'we', 'I'. Make it non-personal !!!!!
-
-Possible additions:
-
-SWOT analysis in Risk analysis
-Security Report
-attachments
-source control ==> Bibliography
-ersion control ==> Change log
-Research Questions may have sub questions
-document on the bigger question of the project
-Leeswijzer
-Manual
-Sub-questions in research!!!!
-Introduction with standard project details in each document!!!!!
-
-People to send the document to: Bart, Ahmet, Hidde-Jan
+\end{thebibliography}
 
 \end{comment}
+
+\newpage
+
+\end{document}
